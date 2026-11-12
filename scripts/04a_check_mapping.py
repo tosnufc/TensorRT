@@ -1,0 +1,12 @@
+import torchvision
+
+WNID_TO_IMAGENET = {
+    "n01440764": 0, "n02102040": 217, "n02979186": 482, "n03000684": 491,
+    "n03028079": 497, "n03394916": 566, "n03417042": 569, "n03425413": 571,
+    "n03445777": 574, "n03888257": 701,
+}
+
+categories = torchvision.models.ResNet50_Weights.IMAGENET1K_V2.meta["categories"]
+
+for wnid, idx in WNID_TO_IMAGENET.items():
+    print(f"{wnid} -> {idx:>3} -> {categories[idx]}")
